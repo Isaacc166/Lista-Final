@@ -1,22 +1,37 @@
-#include <stdio.h>
-
 int main() {
-    float valorHoraAula, salarioBruto, descontoINSS, salarioLiquido;
-    int numeroAulas;
+    float num1, num2;
+    char operador;
 
-    printf("Digite o valor da hora-aula: ");
-    scanf("%f", &valorHoraAula);
+    printf("Digite o primeiro número: ");
+    scanf("%f", &num1);
 
-    printf("Digite o número de aulas dadas: ");
-    scanf("%d", &numeroAulas);
+    printf("Digite o segundo número: ");
+    scanf("%f", &num2);
 
-    printf("Digite a porcentagem de desconto do INSS: ");
-    scanf("%f", &descontoINSS);
+    printf("Digite o operador (+, -, *, /): ");
+    scanf(" %c", &operador);
 
-    salarioBruto = valorHoraAula * numeroAulas;
-    salarioLiquido = salarioBruto - (salarioBruto * (descontoINSS / 100));
-
-    printf("O salário líquido do professor é: %.2f\n", salarioLiquido);
+    switch (operador) {
+        case '+':
+            printf("Resultado: %.2f\n", num1 + num2);
+            break;
+        case '-':
+            printf("Resultado: %.2f\n", num1 - num2);
+            break;
+        case '*':
+            printf("Resultado: %.2f\n", num1 * num2);
+            break;
+        case '/':
+            if (num2 != 0) {
+                printf("Resultado: %.2f\n", num1 / num2);
+            } else {
+                printf("Erro: Divisão por zero!\n");
+            }
+            break;
+        default:
+            printf("Operador inválido!\n");
+            break;
+    }
 
     return 0;
 }
